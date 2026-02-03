@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Geotab Interview Preparation - STAR Stories and Q&A">
+    <meta name="theme-color" content="#0066cc">
+    <title>Geotab Interview Prep</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🎯 Geotab Interview Prep</h1>
+            <p class="subtitle">Senior Data Scientist - Altitude Platform</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="stories">STAR Stories</button>
+            <button class="tab-btn" data-tab="questions">Q&A</button>
+            <button class="tab-btn" data-tab="ask">Questions to Ask</button>
+            <button class="tab-btn" data-tab="tips">Tips</button>
+        </nav>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search stories, questions, or topics...">
+            <button id="clearSearch">✕</button>
+        </div>
+
+        <!-- Filter Tags -->
+        <div class="filter-container" id="filterContainer">
+            <!-- Dynamically populated -->
+        </div>
+
+        <!-- Content Sections -->
+        <main id="mainContent">
+            <!-- STAR Stories Tab -->
+            <section id="stories-content" class="tab-content active">
+                <div class="stories-grid" id="storiesGrid">
+                    <!-- Dynamically populated -->
+                </div>
+            </section>
+
+            <!-- Q&A Tab -->
+            <section id="questions-content" class="tab-content">
+                <div class="qa-categories" id="qaCategories">
+                    <!-- Dynamically populated -->
+                </div>
+            </section>
+
+            <!-- Questions to Ask Tab -->
+            <section id="ask-content" class="tab-content">
+                <div class="ask-categories" id="askCategories">
+                    <!-- Dynamically populated -->
+                </div>
+            </section>
+
+            <!-- Tips Tab -->
+            <section id="tips-content" class="tab-content">
+                <div class="tips-grid" id="tipsGrid">
+                    <!-- Dynamically populated -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Modal for Story Details -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="modalBody"></div>
+            </div>
+        </div>
+
+        <!-- Install Prompt -->
+        <div id="installPrompt" class="install-prompt hidden">
+            <p>Install this app for offline access</p>
+            <button id="installBtn">Install</button>
+            <button id="dismissInstall">✕</button>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Last updated: February 2026 | <span id="onlineStatus">Online</span></p>
+        </footer>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
