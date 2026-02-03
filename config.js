@@ -12,13 +12,13 @@ const firebaseConfig = {
 
 // Authorized email addresses (add your Gmail and any others you want to allow)
 const AUTHORIZED_EMAILS = [
-    "your.email@gmail.com",
+    "rinkuce@gmail.com",
     // "another.email@gmail.com", // Add more as needed
 ];
 
 // Or use domain-based authorization (anyone with @yourdomain.com can access)
 const AUTHORIZED_DOMAINS = [
-    // "yourdomain.com", // Uncomment and add domains if needed
+    // "gmail.com", // Uncomment and add domains if needed
 ];
 
 // Initialize Firebase
