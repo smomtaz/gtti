@@ -34,15 +34,205 @@ body {
     padding: 1rem;
 }
 
-/* Header */
-header {
+/* ========================================
+   AUTHENTICATION STYLES
+   ======================================== */
+
+/* Login Screen */
+.login-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 1rem;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
     text-align: center;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-card h1 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.login-subtitle {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+/* Google Sign-in Button */
+.google-signin-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    background: white;
+    color: var(--text-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.google-signin-btn:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+    border-color: var(--primary-color);
+}
+
+.google-signin-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.google-signin-btn svg {
+    flex-shrink: 0;
+}
+
+.login-notice {
+    margin-top: 1.5rem;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.login-error {
+    display: none;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: #ffebee;
+    color: #c62828;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border-left: 4px solid #c62828;
+    text-align: left;
+}
+
+/* User Info in Header */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+    display: none;
+}
+
+.sign-out-btn {
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sign-out-btn:hover {
+    background: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.5);
+    transform: translateY(-1px);
+}
+
+.sign-out-btn:active {
+    transform: translateY(0);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-spinner p {
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Main App Container */
+.main-app {
+    display: none;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+header {
     padding: 2rem 1rem;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     border-radius: 12px;
     margin-bottom: 2rem;
     box-shadow: var(--shadow);
+}
+
+header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header h1 {
@@ -55,7 +245,10 @@ header h1 {
     opacity: 0.9;
 }
 
-/* Navigation Tabs */
+/* ========================================
+   NAVIGATION TABS
+   ======================================== */
+
 .tabs {
     display: flex;
     gap: 0.5rem;
@@ -88,7 +281,10 @@ header h1 {
     color: white;
 }
 
-/* Search Bar */
+/* ========================================
+   SEARCH BAR
+   ======================================== */
+
 .search-container {
     position: relative;
     margin-bottom: 1.5rem;
@@ -106,6 +302,7 @@ header h1 {
 #searchInput:focus {
     outline: none;
     border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
 }
 
 #clearSearch {
@@ -119,13 +316,21 @@ header h1 {
     color: var(--text-light);
     cursor: pointer;
     display: none;
+    transition: color 0.3s ease;
+}
+
+#clearSearch:hover {
+    color: var(--accent-color);
 }
 
 #clearSearch.visible {
     display: block;
 }
 
-/* Filter Tags */
+/* ========================================
+   FILTER TAGS
+   ======================================== */
+
 .filter-container {
     display: flex;
     flex-wrap: wrap;
@@ -146,6 +351,7 @@ header h1 {
 .filter-tag:hover {
     border-color: var(--primary-color);
     color: var(--primary-color);
+    transform: translateY(-2px);
 }
 
 .filter-tag.active {
@@ -154,7 +360,10 @@ header h1 {
     border-color: var(--primary-color);
 }
 
-/* Tab Content */
+/* ========================================
+   TAB CONTENT
+   ======================================== */
+
 .tab-content {
     display: none;
 }
@@ -165,11 +374,20 @@ header h1 {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { 
+        opacity: 0; 
+        transform: translateY(10px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
 }
 
-/* Stories Grid */
+/* ========================================
+   STORIES GRID
+   ======================================== */
+
 .stories-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -197,6 +415,10 @@ header h1 {
 
 .story-card.priority-medium {
     border-left-color: #ffc107;
+}
+
+.story-card.priority-low {
+    border-left-color: var(--success-color);
 }
 
 .story-card h3 {
@@ -235,22 +457,25 @@ header h1 {
     text-transform: uppercase;
 }
 
-.priority-high {
+.priority-badge.priority-high {
     background: #ffe5e5;
     color: var(--accent-color);
 }
 
-.priority-medium {
+.priority-badge.priority-medium {
     background: #fff8e1;
     color: #ff8f00;
 }
 
-.priority-low {
+.priority-badge.priority-low {
     background: #e8f5e9;
     color: var(--success-color);
 }
 
-/* Q&A Section */
+/* ========================================
+   Q&A SECTION
+   ======================================== */
+
 .qa-categories {
     display: flex;
     flex-direction: column;
@@ -290,10 +515,14 @@ header h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
 }
 
 .qa-question:hover {
     color: var(--primary-color);
+    background: var(--bg-light);
 }
 
 .qa-answer {
@@ -301,7 +530,10 @@ header h1 {
     line-height: 1.8;
     white-space: pre-wrap;
     display: none;
-    padding-top: 0.75rem;
+    padding: 1rem;
+    background: var(--bg-light);
+    border-radius: 6px;
+    margin-top: 0.5rem;
 }
 
 .qa-answer.visible {
@@ -310,20 +542,32 @@ header h1 {
 }
 
 @keyframes slideDown {
-    from { opacity: 0; max-height: 0; }
-    to { opacity: 1; max-height: 1000px; }
+    from { 
+        opacity: 0; 
+        max-height: 0;
+        padding: 0 1rem;
+    }
+    to { 
+        opacity: 1; 
+        max-height: 2000px;
+        padding: 1rem;
+    }
 }
 
 .toggle-icon {
     font-size: 1.5rem;
     transition: transform 0.3s ease;
+    color: var(--primary-color);
 }
 
 .toggle-icon.open {
     transform: rotate(180deg);
 }
 
-/* Questions to Ask */
+/* ========================================
+   QUESTIONS TO ASK
+   ======================================== */
+
 .ask-categories {
     display: flex;
     flex-direction: column;
@@ -340,6 +584,7 @@ header h1 {
 .ask-category h3 {
     color: var(--primary-color);
     margin-bottom: 1rem;
+    font-size: 1.3rem;
 }
 
 .ask-category ul {
@@ -353,10 +598,12 @@ header h1 {
     background: var(--bg-light);
     border-radius: 8px;
     border-left: 3px solid var(--primary-color);
+    transition: all 0.3s ease;
 }
 
 .ask-category li:hover {
     background: #e3f2fd;
+    transform: translateX(4px);
 }
 
 .question-priority {
@@ -368,7 +615,25 @@ header h1 {
     margin-left: 0.5rem;
 }
 
-/* Tips Grid */
+.question-priority.priority-high {
+    background: #ffe5e5;
+    color: var(--accent-color);
+}
+
+.question-priority.priority-medium {
+    background: #fff8e1;
+    color: #ff8f00;
+}
+
+.question-priority.priority-low {
+    background: #e8f5e9;
+    color: var(--success-color);
+}
+
+/* ========================================
+   TIPS GRID
+   ======================================== */
+
 .tips-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -381,11 +646,18 @@ header h1 {
     padding: 1.5rem;
     box-shadow: var(--shadow);
     border-top: 4px solid var(--success-color);
+    transition: all 0.3s ease;
+}
+
+.tip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
 }
 
 .tip-card h4 {
     color: var(--success-color);
     margin-bottom: 0.75rem;
+    font-size: 1.1rem;
 }
 
 .tip-card ul {
@@ -395,9 +667,13 @@ header h1 {
 .tip-card li {
     margin-bottom: 0.5rem;
     color: var(--text-dark);
+    line-height: 1.6;
 }
 
-/* Modal */
+/* ========================================
+   MODAL
+   ======================================== */
+
 .modal {
     display: none;
     position: fixed;
@@ -426,6 +702,7 @@ header h1 {
     overflow-y: auto;
     box-shadow: 0 4px 24px rgba(0,0,0,0.2);
     position: relative;
+    animation: slideUp 0.3s ease;
 }
 
 .close {
@@ -445,15 +722,19 @@ header h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
 }
 
 .close:hover {
     color: var(--accent-color);
+    transform: rotate(90deg);
 }
 
 #modalBody h2 {
     color: var(--primary-color);
     margin-bottom: 1rem;
+    margin-top: 0;
 }
 
 #modalBody h3 {
@@ -475,7 +756,10 @@ header h1 {
     margin-bottom: 0.5rem;
 }
 
-/* Install Prompt */
+/* ========================================
+   INSTALL PROMPT
+   ======================================== */
+
 .install-prompt {
     position: fixed;
     bottom: 20px;
@@ -490,10 +774,10 @@ header h1 {
     align-items: center;
     gap: 1rem;
     z-index: 999;
-    animation: slideUp 0.3s ease;
+    animation: slideUpFromBottom 0.3s ease;
 }
 
-@keyframes slideUp {
+@keyframes slideUpFromBottom {
     from { transform: translate(-50%, 100%); }
     to { transform: translate(-50%, 0); }
 }
@@ -525,7 +809,14 @@ header h1 {
     color: white;
 }
 
-/* Footer */
+#dismissInstall:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
 footer {
     text-align: center;
     padding: 2rem 1rem;
@@ -551,10 +842,35 @@ footer {
     color: #d32f2f;
 }
 
-/* Responsive Design */
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
 @media (max-width: 768px) {
     header h1 {
         font-size: 1.5rem;
+    }
+    
+    header > div {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .user-info {
+        flex-direction: row;
+        gap: 0.75rem;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .user-photo {
+        width: 32px;
+        height: 32px;
+    }
+    
+    header {
+        padding: 1.5rem 1rem;
     }
     
     .stories-grid {
@@ -575,22 +891,31 @@ footer {
         width: 95%;
         padding: 1.5rem;
     }
-}
-
-/* Print Styles */
-@media print {
-    .tabs, .search-container, .filter-container, .install-prompt, footer {
-        display: none;
+    
+    .login-card {
+        padding: 2rem 1.5rem;
     }
     
-    .story-card, .qa-category, .ask-category {
-        break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid var(--border-color);
+    .login-card h1 {
+        font-size: 1.75rem;
     }
 }
 
-/* Loading Animation */
+@media (max-width: 480px) {
+    .filter-container {
+        max-height: 120px;
+        overflow-y: auto;
+    }
+    
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
 .loading {
     text-align: center;
     padding: 3rem;
@@ -608,14 +933,16 @@ footer {
     60%, 100% { content: '...'; }
 }
 
-/* Highlight for search results */
 .highlight {
     background-color: #ffeb3b;
     padding: 0 2px;
     border-radius: 2px;
 }
 
-/* Accessibility */
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
 :focus {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
@@ -625,7 +952,60 @@ button:focus, a:focus {
     outline: 2px solid var(--primary-color);
 }
 
-/* Dark mode support (optional) */
+/* Skip to main content for screen readers */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+    .tabs, 
+    .search-container, 
+    .filter-container, 
+    .install-prompt, 
+    .user-info,
+    .sign-out-btn,
+    footer {
+        display: none;
+    }
+    
+    .story-card, 
+    .qa-category, 
+    .ask-category {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--border-color);
+    }
+    
+    header {
+        background: white;
+        color: var(--text-dark);
+        border: 1px solid var(--border-color);
+    }
+    
+    .qa-answer {
+        display: block !important;
+    }
+}
+
+/* ========================================
+   DARK MODE SUPPORT (Optional)
+   ======================================== */
+
 @media (prefers-color-scheme: dark) {
     :root {
         --text-dark: #e0e0e0;
@@ -639,4 +1019,61 @@ button:focus, a:focus {
         background-color: var(--bg-light);
         color: var(--text-dark);
     }
+    
+    .login-card {
+        background: var(--bg-card);
+    }
+    
+    .google-signin-btn {
+        background: var(--bg-card);
+        color: var(--text-dark);
+        border-color: #404040;
+    }
+    
+    .google-signin-btn:hover {
+        background: #3d3d3d;
+    }
 }
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-light);
+}
+
+/* ========================================
+   CUSTOM ANIMATIONS
+   ======================================== */
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ========================================
+   END OF STYLES
+   ======================================== */
