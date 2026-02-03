@@ -1,1 +1,49 @@
-
+{
+  "name": "Geotab Interview Preparation",
+  "short_name": "Geotab Prep",
+  "description": "Interview preparation app for Geotab Senior Data Scientist position with STAR stories, Q&A, and questions to ask",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0066cc",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "education"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "STAR Stories",
+      "short_name": "Stories",
+      "description": "View all STAR format interview stories",
+      "url": "/index.html#stories",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Q&A",
+      "short_name": "Questions",
+      "description": "Interview questions and answers",
+      "url": "/index.html#questions",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Ask Questions",
+      "short_name": "Ask",
+      "description": "Questions to ask interviewers",
+      "url": "/index.html#ask",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
